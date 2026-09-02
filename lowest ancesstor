@@ -1,0 +1,12 @@
+class Solution : 
+    def lowestAncestor(self, root, a, b):
+       if root is None or root == a or root == b : 
+          return root 
+     
+       left = self.lowestAncestor(root.left, a, b)
+       right = self.lowestAncestor(root.right, a, b)
+
+       if right and left  : 
+          return root 
+
+       return left or right 
